@@ -1,0 +1,312 @@
+// 颜色
+$color-black: #000;
+$color-dark: #333;
+$color-gray: #989898;
+$color-light: #fafafa;
+$color-white: #FFF;
+
+$color-blue: #488AFA;
+$color-green: #51C419;
+$color-orange: #FF9E00;
+$color-yellow: #E6A23C;
+$color-red: #FF3B30;
+
+$color-text-1: #333333;
+$color-text-2: #666666;
+$color-text-3: #A8A8A8;
+$color-text-4: #CACACA;
+
+
+// 字体大小
+$font-xs: 12px;
+$font-sm: 14px;
+$font-md: 16px;
+$font-bg: 18px;
+$font-lg: 24px;
+$font-hg: 37px;
+
+// 边距填充尺寸
+$size-0: 0;
+$size-xs: 5px;
+$size-sm: 10px;
+$size-md: 15px;
+$size-bg: 20px;
+$size-lg: 30px;
+$size-hg: 50px;
+
+
+// 生成颜色样式列表
+@mixin setColor($prefix: 'color', $css: 'color') {
+
+  @each $name,
+  $value in ('black', $color-black),
+  ('dark', $color-dark),
+  ('gray', $color-gray),
+  ('light', $color-light),
+  ('white', $color-white),
+  ('blue', $color-blue),
+  ('green', $color-green),
+  ('orange', $color-orange),
+  ('yellow', $color-yellow),
+  ('red', $color-red),
+  ('text-1', $color-text-1),
+  ('text-2', $color-text-2),
+  ('text-3', $color-text-3),
+  ('text-4', $color-text-4) {
+    .#{$prefix}-#{$name} {
+      #{$css}: $value !important;
+    }
+  }
+}
+
+// 生成边距和填充尺寸
+@mixin setMarginPadding($prefix, $css) {
+
+  @each $name,
+  $size in ('0', $size-0),
+  ('xs', $size-xs),
+  ('sm', $size-sm),
+  ('md', $size-md),
+  ('bg', $size-bg),
+  ('lg', $size-lg),
+  ('hg', $size-hg) {
+    .#{$prefix}-#{$name} {
+      @if type-of($css)==list {
+        @each $item in $css {
+          #{$item}: $size !important;
+        }
+      }
+
+      @else {
+        #{$css}: $size !important;
+      }
+    }
+  }
+}
+
+// width height 百分比
+@mixin setWidthHeight {
+  @for $i from 1 through 10 {
+    .width-#{$i}0p {
+      width: (100% / $i);
+    }
+
+    .height-#{$i}0p {
+      width: (100% / $i);
+    }
+
+    .width-half {
+      width: 50%;
+    }
+
+    .width-full {
+      width: 100%;
+    }
+
+    .height-half {
+      height: 50%;
+    }
+
+    .height-full {
+      height: 100%;
+    }
+  }
+
+}
+
+// 生成字体尺寸
+@mixin setFontSize($prefix: font) {
+
+  @each $name,
+  $size in ('xs', $font-xs),
+  ('sm', $font-sm),
+  ('md', $font-md),
+  ('bg', $font-bg),
+  ('lg', $font-lg),
+  ('hg', $font-hg) {
+    .#{$prefix}-#{$name} {
+      font-size: $size !important;
+    }
+  }
+}
+
+// 清除浮动
+@mixin clearfix {
+
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// 阴影
+@mixin boxShadow() {
+  box-shadow: 0 2px 20px rgba(25, 125, 188, 0.1);
+}
+
+// 流海屏幕填充
+@mixin iphoneX($location: bottom) {
+  box-sizing: content-box;
+  padding-bottom: const(safe-area-inset-#{$location});
+  padding-bottom: env(safe-area-inset-#{$location});
+}
+
+
+// 文字超出显示小点
+@mixin textHidden() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// 删格化
+@mixin splitRow() {
+  .row {
+    @include clearfix();
+  }
+
+  @for $i from 1 through 24 {
+    .col-#{$i} {
+      float: left;
+      min-height: 5px;
+      width: (100% / 24 * $i);
+    }
+  }
+}
+
+// helper-flex
+@mixin flexHelper {
+  .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flex,
+  .flex-column {
+    &.align-start {
+      align-items: flex-start;
+    }
+
+    &.align-end {
+      align-items: flex-end;
+    }
+
+    &.align-stretch {
+      align-items: stretch;
+    }
+
+    &.justify-start {
+      justify-content: flex-start;
+    }
+
+    &.justify-end {
+      justify-content: flex-end;
+    }
+
+    &.justify-center {
+      justify-content: center;
+    }
+
+    &.justify-between {
+      justify-content: space-between;
+    }
+
+    &.justify-around {
+      justify-content: space-around;
+    }
+  }
+
+  .flex-none {
+    flex: none;
+  }
+
+  .flex-auto {
+    flex: auto;
+  }
+
+  .flex-1 {
+    flex: 1;
+  }
+
+  .flex-2 {
+    flex: 2;
+  }
+
+  .flex-3 {
+    flex: 2;
+  }
+}
+
+// textHelper
+@mixin textHelper {
+  .text-left {
+    text-align: left !important;
+  }
+
+  .text-center {
+    text-align: center !important;
+  }
+
+  .text-right {
+    text-align: right !important;
+  }
+
+  .text-justify {
+    text-align: justify !important;
+  }
+
+  .text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .font-light {
+    font-weight: 200 !important;
+  }
+
+  .font-normal {
+    font-weight: normal !important;
+  }
+
+  .font-bold {
+    font-weight: 600 !important;
+  }
+
+  .lh-10 {
+    line-height: 1.0 !important;
+  }
+
+  .lh-14 {
+    line-height: 1.4 !important;
+  }
+
+  .lh-16 {
+    line-height: 1.6 !important;
+  }
+
+  .lh-18 {
+    line-height: 1.8 !important;
+  }
+
+  .lh-20 {
+    line-height: 2.0 !important;
+  }
+
+  .lh-25 {
+    line-height: 2.5 !important;
+  }
+
+}
+
+// layoutHelper

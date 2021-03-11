@@ -1,0 +1,36 @@
+{
+  "name": "vue3-framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite --mode development",
+    "test": "vite --mode test",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "nprogress": "^0.2.0",
+    "vant": "^3.0.9",
+    "vue": "^3.0.7",
+    "vue-router": "^4.0.4",
+    "vuex": "^4.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.1.5",
+    "@vue/compiler-sfc": "^3.0.7",
+    "apite": "^1.2.1",
+    "autoprefixer": "^10.2.5",
+    "postcss-pxtorem": "^6.0.0",
+    "sass": "^1.32.8",
+    "vite": "^2.0.5",
+    "vite-plugin-style-import": "^0.8.1"
+  },
+  "browserslist": [
+    "Android >= 6",
+    "IOS >= 8"
+  ]
+}
