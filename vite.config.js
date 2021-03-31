@@ -41,7 +41,13 @@ export default defineConfig({
       ]
     }),
   ],
-  css: {},
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@css/var";`
+      }
+    }
+  },
 })
 
 

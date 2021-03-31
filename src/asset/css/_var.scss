@@ -95,23 +95,23 @@ $size-hg: 50px;
       width: (100% / $i);
     }
 
-    .width-half {
-      width: 50%;
-    }
-
-    .width-full {
-      width: 100%;
-    }
-
-    .height-half {
-      height: 50%;
-    }
-
-    .height-full {
-      height: 100%;
-    }
   }
 
+  .width-half {
+    width: 50%;
+  }
+
+  .width-full {
+    width: 100%;
+  }
+
+  .height-half {
+    height: 50%;
+  }
+
+  .height-full {
+    height: 100%;
+  }
 }
 
 // 生成字体尺寸

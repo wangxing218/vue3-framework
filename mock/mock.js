@@ -4,9 +4,19 @@
 const { api, resp, mock } = require('apite')
 
 /**
- * 列表数据
+ * data
  */
-api.get('/list', resp.ok({
+api.get('/data', resp.ok({
   id: 1,
-  name: '姓名'
+  name: '@name'
+}))
+
+// mock list
+api.get('/list',()=> resp.mock({
+  'data|10':[{
+    id: '@id',
+    name: '@cname',
+    createTime: '@dateTime'
+  }],
+  total: 10
 }))

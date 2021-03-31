@@ -1,5 +1,5 @@
 <template>
   <div class="height-full flex-column">
-    <p class="font-hg">Hello App</p>
+    <div class="font-hg">Hello</div>
   </div>
 </template>

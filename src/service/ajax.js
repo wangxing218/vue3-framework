@@ -1,7 +1,7 @@
 import axios from 'axios'
 import nprogress from 'nprogress'
 import config from '../entry/config'
-import Toast from '../component/app-toast'
+import { Toast } from 'vant'
 import 'nprogress/nprogress.css'
 nprogress.configure({
   showSpinner: false
@@ -51,7 +51,7 @@ const ajax = (opt) => {
     // 自动处理错误
     function handleError(err) {
       if (config.error === true) {
-        Toast.show(err.msg)
+        Toast(err.msg)
       } else if (typeof config.error == 'function') {
         config.error(err)
       }

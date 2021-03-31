@@ -3,6 +3,7 @@ import { createApp, ref, h } from 'vue'
 import MainToast from './main.vue'
 
 let app = ref(null)
+
 function createTeleport() {
   if (app.value) return app.value
   createApp({
@@ -16,7 +17,7 @@ function show(msg) {
   createTeleport().show(msg)
 }
 
-function hide(msg) {
+function hide() {
   createTeleport().hide()
 }
 

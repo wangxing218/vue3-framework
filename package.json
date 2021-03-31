@@ -22,7 +22,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.1.5",
     "@vue/compiler-sfc": "^3.0.7",
-    "apite": "^1.2.1",
+    "apite": "^1.2.3",
     "autoprefixer": "^10.2.5",
     "postcss-pxtorem": "^6.0.0",
     "sass": "^1.32.8",
